@@ -245,11 +245,11 @@ if __name__ == '__main__':
     conf = get_training_config(config_path, model_name=args.teacher)
     config_data_path = Path.cwd().joinpath('data', 'dataset.conf.yaml')
     conf['division_seed'] = get_experiment_config(config_data_path)['seed']
+    conf = dict(conf, **args.__dict__)
     if args.device > 0:
         conf['device'] = torch.device("cuda:" + str(args.device))
     else:
         conf['device'] = torch.device("cpu")
-    conf = dict(conf, **args.__dict__)
     print(conf)
     output_dir, cascade_dir = choose_path(conf)
     logger = get_logger(output_dir.joinpath('log'))
