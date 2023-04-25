@@ -99,7 +99,7 @@ def choose_model(conf, G, features, labels, byte_idx_train, labels_one_hot):
                           activation=F.relu,
                           dropout=0.5,
                           aggregator_type=conf['agg_type']).to(conf['device'])
-    elif conf['model_name'] == 'APPNP':
+    elif conf['model_name'] == 'APƒPNP':
         model = APPNP(g=G,
                       in_feats=G.ndata['feat'].shape[1],
                       hiddens=[64],

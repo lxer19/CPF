@@ -74,6 +74,7 @@ def load_tensor_data(model_name, dataset, labelrate, device):
     else:
         # config_file = os.path.abspath('data/dataset.conf.yaml')
         adj, features, labels_one_hot, idx_train, idx_val, idx_test = load_dataset_and_split(labelrate, dataset)
+    print(len(idx_train), len(idx_val), len(idx_test))
     adj = preprocess_adj(model_name, adj)
     features = preprocess_features(model_name, features)
     adj_sp = adj.tocoo()

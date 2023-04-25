@@ -158,6 +158,7 @@ def train(all_logits, dur, epoch):
     model.eval()
     if conf['model_name'] in ['GCN', 'APPNP']:
         logits = model(G.ndata['feat'])
+        
     elif conf['model_name'] in ['GAT', 'SGAT']:
         logits, _ = model(G.ndata['feat'])
     elif conf['model_name'] in ['GraphSAGE', 'SGC']:
